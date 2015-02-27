@@ -1,0 +1,1 @@
+Viktor Kjellberg är utbildad inom företagsekonomi och finans. Sedan ett år tillbaka läser han alla intressanta kurser han kan hitta inom datavetenskap, med visst fokus på databashantering och webbutveckling.
