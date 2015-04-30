@@ -29,21 +29,35 @@ return [
 
                 'items' => [
 
-                    // This is a menu item of the submenu
-                    'kmom01'  => [
-                        'text'  => 'kmom01',
-                        'url'   => $this->di->get('url')->create('kmom01'),
-                        'title' => 'Redovisning för första kursmomentet',
+                    'kmom03'  => [
+                        'text'  => 'kmom03',
+                        'url'   => $this->di->get('url')->create('kmom03'),
+                        'title' => 'Redovisning för tredje kursmomentet',
                     ],
                     'kmom02'  => [
                         'text'  => 'kmom02',
                         'url'   => $this->di->get('url')->create('kmom02'),
                         'title' => 'Redovisning för andra kursmomentet',
                     ],
+                    // This is a menu item of the submenu
+                    'kmom01'  => [
+                        'text'  => 'kmom01',
+                        'url'   => $this->di->get('url')->create('kmom01'),
+                        'title' => 'Redovisning för första kursmomentet',
+                    ],
+
+
 
 
                 ],
             ],
+        ],
+
+        // This is a menu item 
+        'theme'  => [ 
+            'text'  => 'Tema', 
+            'url'   => 'theme.php', 
+            'title' => 'Sida för tema' 
         ],
 
          // This is a menu item

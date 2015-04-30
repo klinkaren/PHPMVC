@@ -120,17 +120,33 @@ $app->router->add('kmom02', function() use ($app) {
  
 });
 
-$app->router->add('dice', function() use ($app) {
+$app->router->add('kmom03', function() use ($app) {
  
-    $app->theme->setTitle("Tärningskast");
+    $app->theme->setTitle("Kmom03: Rapport");
  
-    $content = $app->fileContent->get('dice.php');
+    $content = $app->fileContent->get('kmom03.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
     $byline  = $app->fileContent->get('byline.md');
     $byline  = $app->textFilter->doFilter($byline, 'shortcode, markdown');
  
     $app->views->add('me/page', [
         'content' => $content,
         'byline' => $byline,
+    ]);
+
+    $app->dispatcher->forward([
+        'controller' => 'comment',
+        'action' => 'view',
+        'params' => ['kmom03'],
+    ]);
+    
+    $app->views->add('comment/form', [
+        'mail' => null,
+        'web' => null,
+        'name' => null,
+        'content' => null,
+        'output' => null,
+        'key' => 'kmom03',
     ]);
  
 });

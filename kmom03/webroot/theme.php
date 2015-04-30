@@ -9,47 +9,16 @@
 require __DIR__.'/config_with_app.php'; 
 
 // Configuration
-$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
+$app->navbar->configure(ANAX_APP_PATH . 'config/navbar-grid.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 // Add routes
 $app->router->add('', function() use ($app) {
-    $app->theme->setTitle("ME");
-
-    $content = $app->fileContent->get('me.md');
-    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-    $byline = $app->fileContent->get('byline.md');
-    $byline  = $app->textFilter->doFilter($byline, 'shortcode, markdown');
-
-    $app->views->add('me/page', [
-    	'content' => $content,
-    	'byline' => $byline,
-    ]);
-});
-
-$app->router->add('redovisning', function() use ($app) {
- 	
-    $app->theme->setTitle("Redovisning");
  
-    $content = $app->fileContent->get('redovisning.md');
-    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-    $byline  = $app->fileContent->get('byline.md');
-    $byline  = $app->textFilter->doFilter($byline, 'shortcode, markdown');
+    $app->theme->addStylesheet('css/anax-grid/theme.css');
+    $app->theme->setTitle("Tema");
  
-    $app->views->add('me/page', [
-        'content' => $content,
-        'byline' => $byline,
-    ]);
- 
-});
-
-
-$app->router->add('regioner', function() use ($app) {
- 
-    $app->theme->addStylesheet('css/anax-grid/regions_demo.css');
-    $app->theme->setTitle("Regioner");
- 
-    $app->views->addString('flash', 'flash')
+    $app->views->addString('flash<br>flash2', 'flash')
                ->addString('featured-1', 'featured-1')
                ->addString('featured-2', 'featured-2')
                ->addString('featured-3', 'featured-3')
@@ -65,6 +34,30 @@ $app->router->add('regioner', function() use ($app) {
  
 });
 
+$app->router->add('typografi', function() use ($app) {
+  $app->theme->addStylesheet('css/anax-grid/typographyStyle.css');
+ 
+    $app->theme->setTitle("Typografi");
+ 
+    $app->views->add('theme/typography', array(), 'main');
+    $app->views->add('theme/typography', array(), 'sidebar');
+ 
+});
+
+$app->router->add('font-awesome', function() use ($app) {
+ 
+    $app->theme->addStylesheet('css/anax-grid/theme.css');
+    $app->theme->setTitle("Font Awesome");
+ 
+    $app->views->add('theme/font-awesome', array(), 'main');
+    $app->views->add('theme/font-awesome-sidebar', array(), 'sidebar');
+    
+    $app->views->add('theme/font-awesome-1', array(), 'triptych-1');
+    $app->views->add('theme/font-awesome-2', array(), 'triptych-2');
+    $app->views->add('theme/font-awesome-3', array(), 'triptych-3');
+ 
+});
+
 
 $app->router->handle();
-$app->theme->render();
+$app->theme->render(); 

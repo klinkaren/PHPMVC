@@ -21,9 +21,27 @@ return [
      * Add default views.
      */
     'views' => [
-        ['region' => 'header', 'template' => 'welcome/header', 'data' => [], 'sort' => -1],
-        ['region' => 'footer', 'template' => 'welcome/footer', 'data' => [], 'sort' => -1],
+        ['region' => 'header', 'template' => 'theme/header', 'data' => [], 'sort' => -1],
+        ['region' => 'footer', 'template' => 'theme/footer', 'data' => [], 'sort' => -1],
+    
+
+
+
+    /**
+     * Navbar
+     */
+    [
+        'region' => 'navbar', 
+        'template' => [
+            'callback' => function() {
+                return $this->di->navbar->create();
+            },
+        ], 
+        'data' => [], 
+        'sort' => -1
     ],
+        
+        ],
 
 
     /** 
