@@ -56,7 +56,7 @@ return [
         'title_append' => ' | Anax a web template',
 
         // Stylesheets
-        //'stylesheets' => ['css/style.css'],
+        //'stylesheets' => ['css/anax-grid/style.css'],
         'stylesheets' => ['css/anax-grid/style.php'],
 
         // Inline style
