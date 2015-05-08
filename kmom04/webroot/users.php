@@ -25,12 +25,6 @@ $di->set('UsersController', function() use ($di) {
     return $controller;
 });
 
-$di->set('CommentController', function() use ($di) {
-    $controller = new \Anax\Comment\CommentDbController();
-    $controller->setDI($di);
-    return $controller;
-});
-
 $app = new \Anax\Kernel\CAnax($di);
 
 // Start session
@@ -46,19 +40,6 @@ $app->router->add('', function() use ($app) {
         'content' => "<h1 style='border: 0;'>Welcome to the user database!</h1>",
     ]);
 
-    $app->views->add('comment/form', [
-        'mail' => null,
-        'web' => null,
-        'name' => null,
-        'content' => null,
-        'output' => null,
-        'key' => 'user',
-        ]);
-        
-        $app->dispatcher->forward([
-        'controller' => 'comment',
-        'action' => 'view',
-        ]);
 });
 
 // Finish off the page ----------------------------------------------
@@ -74,10 +55,10 @@ $app->theme->setVariable('title', "PHPMVC v2 - User database");
 
 
 // Add extra styling
-$app->theme->addStylesheet('css/comment.css');
+//$app->theme->addStylesheet('css/comment.css');
 
 // Navigation
-$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_user.php');
+//$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_user.php');
 
 // Render the response using theme engine.
 $app->theme->render(); 

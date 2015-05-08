@@ -50,18 +50,51 @@ return [
                         'title' => 'Redovisning för första kursmomentet',
                     ],
 
-
-
-
                 ],
             ],
         ],
 
-        // This is a menu item 
-        'theme'  => [ 
-            'text'  => 'Tema', 
-            'url'   => 'theme.php', 
-            'title' => 'Sida för tema' 
+        // This is a menu item
+        'users' => [
+            'text'  =>'Användare', 
+            'url'   =>'users',  
+            'title' => 'Databas för användare',
+        
+            // Submenu
+            'submenu' => [
+                'items' => [
+                    'setup' => [
+                        'text'  => 'Initiera', 
+                        'url'   => 'users/setup',  
+                        'title' => 'Initiera databasen.'
+                    ],
+                    'add' => [
+                        'text'  => 'Skapa användare', 
+                        'url'   => 'users/add',  
+                        'title' => 'Formulär för att skapa en ny användare.'
+                    ],
+                    'list'  => [
+                        'text'  => 'Visa alla',   
+                        'url'   => 'users/list',   
+                        'title' => 'Visa alla användare i databasen.',
+                    ],
+                    'active'  => [
+                        'text'  => 'Visa aktiva',   
+                        'url'   => 'users/active',   
+                        'title' => 'Visa alla aktiva medlemmar i databasen.',
+                    ],
+                    'inactive'  => [
+                        'text'  => 'Visa inaktiva',   
+                        'url'   => 'users/inactive',   
+                        'title' => 'Visa alla inaktiva medlemmar i databasen.',
+                    ],
+                    'trash'  => [
+                        'text'  => 'Papperskorg',   
+                        'url'   => 'users/trash',   
+                        'title' => 'Visar alla medlemmar som är "soft-deleted"',
+                    ],
+                ],
+            ],
         ],
 
          // This is a menu item
@@ -74,37 +107,17 @@ return [
  
 
 
-    /**
-     * Callback tracing the current selected menu item base on scriptname
-     *
-     */
-    'callback' => function ($url) {
-        if ($this->di->get('request')->getCurrentUrl($url) == $this->di->get('url')->create($url)) {
+    // Callback tracing the current selected menu item base on scriptname
+    'callback' => function($url) {
+        if ($url == $this->di->get('request')->getRoute()) {
             return true;
         }
     },
 
-
-
-    /**
-     * Callback to check if current page is a decendant of the menuitem, this check applies for those
-     * menuitems that has the setting 'mark-if-parent' set to true.
-     *
-     */
-    'is_parent' => function ($parent) {
-        $route = $this->di->get('request')->getRoute();
-        return !substr_compare($parent, $route, 0, strlen($parent));
-    },
-
-
-
-   /**
-     * Callback to create the url, if needed, else comment out.
-     *
-     */
-   /*
-    'create_url' => function ($url) {
+    // Callback to create the urls
+    'create_url' => function($url) {
         return $this->di->get('url')->create($url);
     },
-    */
+
 ];
+

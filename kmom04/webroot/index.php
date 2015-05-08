@@ -275,22 +275,9 @@ $app->router->add('users', function() use ($app) {
     $app->theme->setTitle("Users");
 
     $app->views->add('me/page', [
-        'content' => "<h1>User database</h1>",
+        'content' => "<h1>Användare</h1><p>Här kan du hantera användare i databasen.</p>",
     ]);
-    
-    $app->views->add('comment/form', [
-        'mail' => null,
-        'web' => null,
-        'name' => null,
-        'content' => null,
-        'output' => null,
-        'key' => 'user',
-        ]);
         
-        $app->dispatcher->forward([
-        'controller' => 'comment',
-        'action' => 'view',
-        ]);
 });
 
 

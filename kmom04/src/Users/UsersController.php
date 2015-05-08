@@ -85,7 +85,7 @@ class UsersController implements \Anax\DI\IInjectionAware
 	    $this->theme->setTitle("List all users");
 	    $this->views->add('users/list-all', [
 	        'users' => $all,
-	        'title' => "View all users",
+	        'title' => "Alla användare",
 	    ]);
 	}
 
@@ -193,7 +193,7 @@ class UsersController implements \Anax\DI\IInjectionAware
 	    $this->theme->setTitle("Users that are active");
 	    $this->views->add('users/list-all', [
 	        'users' => $all,
-	        'title' => "Users that are active",
+	        'title' => "Aktiva medlemmar (ej borttagna)",
 	    ]);
 	}
 
