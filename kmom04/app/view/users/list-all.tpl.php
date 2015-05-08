@@ -33,4 +33,4 @@
  
 </table>
 
-<p><a href='<?=$this->url->create('')?>'>Home</a></p>
+<p><a href='<?=$this->url->create('')?>'>Hem</a></p>

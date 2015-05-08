@@ -21,6 +21,9 @@ $di->setShared('db', function() {
     return $db;
 });
 
+
+$di->set('form', '\Mos\HTMLForm\CForm');
+
 // Users
 $di->set('UsersController', function() use ($di) {
     $controller = new \Anax\Users\UsersController();
@@ -275,7 +278,15 @@ $app->router->add('users', function() use ($app) {
     $app->theme->setTitle("Users");
 
     $app->views->add('me/page', [
-        'content' => "<h1>Användare</h1><p>Här kan du hantera användare i databasen.</p>",
+        'content' => "<h1>Användare</h1>
+        <ul>
+            <li><a href='users/setup'>Initiera användardatabasen</a></li>
+            <li><a href='users/add'>Skapa ny användare</a></li>
+            <li><a href='users/list'>Visa alla användare</a></li>
+            <li><a href='users/active'>Visa alla aktiva användare</a></li>
+            <li><a href='users/inactive'>Visa alla inaktiva användare</a></li>
+            <li><a href='users/trash'>Visa papperskorgen</a></li>
+        </ul>",
     ]);
         
 });
