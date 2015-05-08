@@ -1,0 +1,33 @@
+#flash,
+#featured-1,
+#featured-2,
+#featured-3,
+#main,
+#sidebar,
+#triptych-1,
+#triptych-2,
+#triptych-3,
+#footer-col-1,
+#footer-col-2,
+#footer-col-3,
+#footer-col-4 {
+	background-color: #f0f0f0;
+}
+.fa-google-plus-square:hover {
+    color: green;
+}
+.fa-facebook-square:hover{
+	color: blue;
+}
+.fa-twitter-square:hover{
+	color: lightblue;
+}
+.fa-thumbs-o-down:hover{
+	color: blue;
+}
+.fa-thumbs-o-up:hover{
+	color: blue;
+}
+#wrapper:hover{
+	background-image: none;
+}
